@@ -33,10 +33,18 @@ img,video{display:block;max-width:100%}
 .mast h2{margin:0;font-size:clamp(28px,3.4vw,48px);font-weight:700;letter-spacing:-.01em;line-height:1.2}
 .mast p{margin:4px 0 0;font-size:clamp(16px,1.6vw,24px)}
 
-/* 01 / 14 — cover */
-.cover .wrap{padding-block:clamp(120px,22vh,260px)}
-.cover h1{margin:0;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1.1;letter-spacing:-.01em}
-.cover p{margin:16px 0 0;font-size:clamp(18px,2.3vw,33px)}
+/* 01 — cover, now a sticky page header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ink);color:var(--paper)}
+.top-in{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px;display:flex;align-items:center;gap:20px}
+.top h1{margin:0;font-size:clamp(18px,1.6vw,24px);font-weight:700;letter-spacing:-.005em;line-height:1.2;white-space:nowrap}
+.top .sub{font-size:clamp(13px,1vw,15px);color:#a4a7ad;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.top nav{margin-left:auto;display:flex;gap:4px;flex:none}
+.top nav a{color:var(--paper);text-decoration:none;font-weight:600;font-size:14px;width:34px;height:34px;display:grid;place-items:center;border-radius:8px;border:1px solid #33363c}
+.top nav a:hover{background:#1f2227}
+.top nav a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (max-width:560px){.top .sub{display:none}}
 
 /* 02 — overview */
 .lbl{font-size:clamp(15px,1.2vw,20px)}
@@ -161,13 +169,13 @@ img,video{display:block;max-width:100%}
 <body>
 
 <!-- 1 -->
-<section class="band dark cover" id="p1">
-  <div class="wrap">
+<header class="top" id="p1">
+  <div class="top-in">
     <h1>MILLI NILLI</h1>
-    <p>Brand Identity V1.0 / as is - to be</p>
+    <span class="sub">Brand Identity V1.0 / as is - to be</span>
+    <nav aria-label="시안 바로가기"><a href="#p4">A</a><a href="#p7">B</a><a href="#p10">C</a></nav>
   </div>
-  <span class="pno">01 / 14</span>
-</section>
+</header>
 
 <!-- 2 -->
 <section class="band" id="p2">
