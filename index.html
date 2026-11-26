@@ -39,6 +39,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .top-in{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px;display:flex;align-items:center;gap:20px}
 .top h1{margin:0;font-size:clamp(18px,1.6vw,24px);font-weight:700;letter-spacing:-.005em;line-height:1.2;white-space:nowrap}
 .top .sub{font-size:clamp(13px,1vw,15px);color:#a4a7ad;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.top .home{color:inherit;text-decoration:none;border-radius:4px}
+.top .home:hover{opacity:.8}
+.top .home:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .top nav{margin-left:auto;display:flex;gap:4px;flex:none}
 .top nav a{color:var(--paper);text-decoration:none;font-weight:600;font-size:14px;width:34px;height:34px;display:grid;place-items:center;border-radius:8px;border:1px solid #33363c}
 .top nav a:hover{background:#1f2227}
@@ -142,11 +145,15 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 .photo>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .photo>img.lg{position:relative;width:82%}
 
-/* 14 — end */
-.end .wrap{padding-block:clamp(120px,22vh,260px)}
-.end h2{margin:0;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1.1}
-.end p{margin:16px 0 0;font-size:clamp(18px,2.3vw,33px)}
-.end p b{font-weight:700}
+/* 14 — E.O.D, now the page footer */
+.foot{background:var(--ink);color:var(--paper)}
+.foot-in{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.foot h2{margin:0;font-size:clamp(18px,1.6vw,24px);font-weight:700;line-height:1.2}
+.foot .sub{font-size:clamp(13px,1vw,15px);color:#a4a7ad}
+.foot .sub b{color:var(--paper);font-weight:600}
+.foot .up{margin-left:auto;color:var(--paper);text-decoration:none;font-size:14px;font-weight:600;padding:8px 12px;border:1px solid #33363c;border-radius:8px}
+.foot .up:hover{background:#1f2227}
+.foot .up:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
 @media (max-width:860px){
   .tree{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px;padding-top:0}
@@ -171,7 +178,7 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 <!-- 1 -->
 <header class="top" id="p1">
   <div class="top-in">
-    <h1>MILLI NILLI</h1>
+    <h1><a class="home" href="#top" aria-label="맨 위로">MILLI NILLI</a></h1>
     <span class="sub">Brand Identity V1.0 / as is - to be</span>
     <nav aria-label="시안 바로가기"><a href="#p4">A</a><a href="#p7">B</a><a href="#p10">C</a></nav>
   </div>
@@ -222,17 +229,17 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
     <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
     <div class="trio">
       <div class="trio-col">
-        <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="card v-a"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png"><source src="video/motion_a.mp4" type="video/mp4"></video></div>
         <div class="let">A</div>
       </div>
       <div class="trio-col">
-        <div class="card v-b"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="card v-b"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png"><source src="video/motion_b.mp4" type="video/mp4"></video></div>
         <div class="let">B</div>
       </div>
       <div class="trio-col">
-        <div class="card v-c"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="card v-c"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png"><source src="video/motion_c.mp4" type="video/mp4"></video></div>
         <div class="let">C</div>
       </div>
@@ -245,7 +252,7 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 <section class="band dark intro" id="p4">
   <div class="wrap">
     <p class="big">A</p>
-    <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+    <div class="card v-a"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
   </div>
   <span class="pno">04 / 14</span>
 </section>
@@ -302,7 +309,7 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 <section class="band dark intro" id="p7">
   <div class="wrap">
     <p class="big">B</p>
-    <div class="card" style="--lx:18.7%;--ly:57%;--lw:62.9%"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+    <div class="card" style="--lx:18.7%;--ly:57%;--lw:62.9%"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
   </div>
   <span class="pno">07 / 14</span>
 </section>
@@ -358,7 +365,7 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 <section class="band dark intro" id="p10">
   <div class="wrap">
     <p class="big">C</p>
-    <div class="card" style="--lx:18.7%;--ly:53.6%;--lw:62.8%"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+    <div class="card" style="--lx:18.7%;--ly:53.6%;--lw:62.8%"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
   </div>
   <span class="pno">10 / 14</span>
 </section>
@@ -416,17 +423,17 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
     <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
     <div class="trio">
       <div class="trio-col">
-        <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="card v-a"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
         <div class="under"><img src="img/logo_a.png" alt="A 로고"></div>
         <div class="let">A</div>
       </div>
       <div class="trio-col">
-        <div class="card v-b"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="card v-b"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
         <div class="under"><img src="img/logo_b.png" alt="B 로고"></div>
         <div class="let">B</div>
       </div>
       <div class="trio-col">
-        <div class="card v-c"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="card v-c"><img class="art" src="img/keyart_card.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
         <div class="under"><img src="img/logo_c.png" alt="C 로고"></div>
         <div class="let">C</div>
       </div>
@@ -436,15 +443,21 @@ section.band{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
 </section>
 
 <!-- 14 -->
-<section class="band dark end" id="p14">
-  <div class="wrap">
+<footer class="foot" id="p14">
+  <div class="foot-in">
     <h2>E.O.D</h2>
-    <p><b>MILLI NILLI</b>&nbsp; Brand Identity V1.0 / as is - to be</p>
+    <span class="sub"><b>MILLI NILLI</b>&nbsp; Brand Identity V1.0 / as is - to be</span>
+    <a class="up" href="#top">맨 위로 ↑</a>
   </div>
-  <span class="pno">14 / 14</span>
-</section>
+</footer>
 
 <script>
+/* Header name returns to the top of the page. */
+document.querySelectorAll('.top .home, .foot .up').forEach(function(el){el.addEventListener('click',function(e){
+  e.preventDefault();
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+});});
 /* Keep every motion clip playing in place, even if a browser pauses it off-screen or blocks the first autoplay attempt. */
 (function(){
   var vids=[].slice.call(document.querySelectorAll('video'));
