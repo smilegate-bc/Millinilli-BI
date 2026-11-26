@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>밀리닐리 Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+/* Layout: the 14-slide deck as one continuous scroll — each slide is a full-width band (white or black, as in the original), content re-flowed for web; app-mockup quadrants keep the original 16:9 compositions. */
+:root{
+  --paper:#ffffff; --ink:#000000; --ink-soft:#1e1e1e; --mute:#b9bcc2; --blue:#0c8ce9; --night:#121212;
+  --sans:"Inter","Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --wrap:1600px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+img,video{display:block;max-width:100%}
+.band{position:relative;background:var(--paper);color:var(--ink)}
+.band.dark{background:var(--ink);color:var(--paper)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:clamp(56px,8vw,120px)}
+.pno{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:14px;font-size:12px;letter-spacing:.08em;color:var(--mute);font-variant-numeric:tabular-nums}
+.band.dark .pno{color:#5d6066}
+.band+.band{border-top:1px solid #ececec}
+.band.dark+.band,.band+.band.dark{border-top-color:#000}
+
+/* Masthead used on overview pages */
+.mast{text-align:center;display:flex;flex-direction:column;align-items:center}
+.mast h2{margin:0;font-size:clamp(28px,3.4vw,48px);font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.mast p{margin:4px 0 0;font-size:clamp(16px,1.6vw,24px)}
+
+/* 01 / 14 — cover */
+.cover .wrap{padding-block:clamp(120px,22vh,260px)}
+.cover h1{margin:0;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1.1;letter-spacing:-.01em}
+.cover p{margin:16px 0 0;font-size:clamp(18px,2.3vw,33px)}
+
+/* 02 — overview */
+.lbl{font-size:clamp(15px,1.2vw,20px)}
+.lbl b{font-weight:700}
+.stem{width:1px;height:30px;background:var(--ink);margin:14px auto 0}
+.tree{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;padding-top:30px}
+.tree::before{content:"";position:absolute;top:0;left:calc(100%/12);right:calc(100%/12);height:1px;background:var(--ink)}
+.cand{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 10px 22px;border:1.5px solid transparent;border-radius:25px;min-width:0}
+.cand::before{content:"";position:absolute;top:-30px;left:50%;width:1px;height:30px;background:var(--ink)}
+.cand .code{font-size:clamp(13px,1.05vw,20px);line-height:1.3}
+.cand .name{font-size:clamp(13px,1.05vw,20px);line-height:1.3;min-height:1.3em}
+.cand img{margin-top:18px;width:100%;max-width:280px;height:auto}
+.cand.off .code,.cand.off .name{color:var(--mute)}
+.cand.on{border-color:var(--blue)}
+.cand.on .code,.cand.on .name{font-weight:600}
+.drop{width:1px;height:clamp(40px,6vw,100px);background:var(--blue);margin-left:calc(100%/12 - 8px)}
+.rev{border:1.5px solid var(--blue);border-radius:25px;padding:clamp(20px,3vw,48px);margin-top:12px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,40px)}
+.rev-media{display:flex;align-items:flex-end;justify-content:center;min-height:0}
+.axis{position:relative;height:1px;background:var(--ink);margin:clamp(16px,2vw,28px) 0 0}
+.axis::after{content:"";position:absolute;right:-1px;top:-4px;border-left:9px solid var(--ink);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+.rev-txt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,40px)}
+.rev-col{display:flex;flex-direction:column;min-width:0}
+.rev-col .tick{width:1px;height:19px;background:var(--ink);margin:-19px auto 0}
+.rev-col .let{text-align:center;font-size:clamp(24px,1.8vw,32px);font-weight:600;margin-top:12px}
+.rev-col h4{margin:clamp(14px,2vw,28px) 0 10px;font-size:clamp(16px,1.2vw,20px);font-weight:600}
+.rev-col p{margin:0;font-size:clamp(15px,1.1vw,20px);line-height:1.55;color:var(--ink-soft)}
+.rev-col .body{padding-left:clamp(0px,4vw,90px)}
+.mrow{display:none}
+
+/* Card: rounded key art with logo (03, 13) */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,1.6vw,28px);margin-top:clamp(40px,7vw,130px)}
+.trio-col{display:flex;flex-direction:column;align-items:center;min-width:0;position:relative}
+.trio-col+.trio-col::before{content:"";position:absolute;left:calc(-1 * clamp(8px,.8vw,14px));bottom:clamp(60px,6vw,96px);height:42%;width:1px;background:var(--ink-soft)}
+.card{position:relative;width:100%;aspect-ratio:606/296}
+.card>img.art{width:100%;height:100%;object-fit:cover;border-radius:7%/14.2%}
+.card>img.logo{position:absolute;left:var(--lx);top:var(--ly);width:var(--lw)}
+.v-a{--lx:19.6%;--ly:58.4%;--lw:60.6%}
+.v-b{--lx:18.6%;--ly:57%;--lw:62.9%}
+.v-c{--lx:18.6%;--ly:53.7%;--lw:62.7%}
+.trio .under{width:100%;margin-top:clamp(-40px,-2vw,-8px);display:flex;justify-content:center;align-items:center;aspect-ratio:16/9}
+.trio .under video{width:100%;height:100%;object-fit:contain}
+.trio .under img{width:86%;height:auto}
+.trio .let{font-size:clamp(32px,2.6vw,48px);font-weight:600;line-height:1.2;margin-top:4px}
+
+/* Section intro (04, 07, 10) */
+.intro{text-align:center}
+.intro .big{font-size:clamp(72px,8vw,128px);font-weight:700;line-height:1.2;margin:0}
+.intro .card{max-width:1156px;margin:clamp(24px,3vw,44px) auto 0;aspect-ratio:1156/564}
+.intro .card>img.art{border-radius:0}
+
+/* Compare (05, 08, 11) */
+.cmp-head{text-align:center;font-size:clamp(48px,4.4vw,64px);font-weight:700;margin:0;line-height:1.2}
+.cmp{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);margin-top:clamp(24px,3vw,40px)}
+.cmp .rule{background:var(--ink-soft)}
+.cmp-side{display:flex;flex-direction:column;align-items:center;min-width:0;padding:0 clamp(12px,3vw,56px)}
+.cmp-stage{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:clamp(220px,34vw,640px)}
+.cmp-stage img{width:min(100%,752px)}
+.cmp-stage video{width:100%;max-width:960px;aspect-ratio:var(--ar,16/9);object-fit:contain}
+.cmp-cap{text-align:center;margin-top:clamp(12px,2vw,28px)}
+.cmp-cap b{display:block;font-weight:400;font-size:clamp(22px,2.2vw,32px)}
+.cmp-cap span{display:block;font-size:clamp(16px,1.6vw,24px);margin-top:2px}
+
+/* App mockup quadrants (06, 09, 12) — original 16:9 compositions */
+.quad .wrap{padding-block:0;padding-left:0;padding-right:0;max-width:1920px}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.q{position:relative;aspect-ratio:16/9;overflow:hidden;container-type:inline-size;max-width:100%}
+.q .abs{position:absolute}
+.q .fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.q .corner{position:absolute;left:1%;top:1.6%;color:#fff;font-weight:700;font-size:10cqw;line-height:1.2;font-size:5cqw}
+.q-white{background:var(--paper)}
+.q-night{background:var(--night)}
+.q-night .fill{opacity:.32}
+.q-black{background:var(--ink)}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.tile{position:relative;overflow:visible}
+.tile .lg{position:absolute;left:var(--x,0);top:var(--y,12.5%);width:var(--w,99.6%)}
+.tile .blk{position:absolute;left:85.6%;top:74.4%;width:13.1%}
+.icon{position:absolute;left:31.98%;top:13.9%;width:36.88%;aspect-ratio:1}
+.icon .base{width:100%;height:100%}
+.icon .art{width:100%;height:100%;object-fit:cover;border-radius:18.4%}
+.icon .lg{position:absolute}
+.appname{position:absolute;left:0;right:0;top:81.3%;text-align:center;font-size:2.5cqw;font-family:"Inter",var(--sans);color:var(--ink);line-height:1.3}
+.photos{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:4% 2.1%;padding:2.2% 2.2% 4%}
+.photo{position:relative;border-radius:4.5%/8.4%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo>img.lg{position:relative;width:94%}
+
+/* 14 — end */
+.end .wrap{padding-block:clamp(120px,22vh,260px)}
+.end h2{margin:0;font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1.1}
+.end p{margin:16px 0 0;font-size:clamp(18px,2.3vw,33px)}
+.end p b{font-weight:700}
+
+@media (max-width:860px){
+  .tree{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px;padding-top:0}
+  .tree::before,.cand::before,.stem,.drop{display:none}
+  .rev-grid,.rev-txt,.axis{display:none}
+  .mrow{display:grid;gap:36px}
+  .mrow .rev-col .body{padding-left:0}
+  .mrow .let{text-align:left;margin-top:8px}
+  .mrow h4{margin-top:6px}
+  .trio{grid-template-columns:minmax(0,1fr);gap:48px}
+  .trio-col+.trio-col::before{display:none}
+  .cmp{grid-template-columns:minmax(0,1fr);row-gap:36px}
+  .cmp .rule{height:1px}
+  .cmp-stage{min-height:0}
+  .qgrid{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="band dark cover" id="p1">
+  <div class="wrap">
+    <h1>MILLI NILLI</h1>
+    <p>Brand Identity V1.0 / as is - to be</p>
+  </div>
+  <span class="pno">01 / 14</span>
+</section>
+
+<!-- 2 -->
+<section class="band" id="p2">
+  <div class="wrap">
+    <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
+    <div class="stem"></div>
+    <div class="lbl" style="margin:-8px 0 14px">[기 보고안]</div>
+    <div class="tree">
+      <div class="cand on"><div class="code">A</div><div class="name">Blocks &amp; Balloon</div><img src="img/logo_asis.png" alt="A 기 보고안 로고"></div>
+      <div class="cand off"><div class="code">A-2</div><div class="name">Balloon</div><img src="img/cand_a2.png" alt="A-2 로고"></div>
+      <div class="cand off"><div class="code">B-1</div><div class="name">MilliNilli Star</div><img src="img/cand_b1.png" alt="B-1 로고"></div>
+      <div class="cand off"><div class="code">B-2</div><div class="name">Star</div><img src="img/cand_b2.png" alt="B-2 로고"></div>
+      <div class="cand off"><div class="code">C-1</div><div class="name">Millinillinese</div><img src="img/cand_c1.png" alt="C-1 로고"></div>
+      <div class="cand off"><div class="code">C-2</div><div class="name">&nbsp;</div><img src="img/cand_c2.png" alt="C-2 로고"></div>
+    </div>
+    <div class="drop"></div>
+    <div class="lbl" style="margin-top:20px"><b>[수정 보고안]</b></div>
+    <div class="rev">
+      <div class="rev-grid">
+        <div class="rev-media"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_a.mp4" type="video/mp4"></video></div>
+        <div class="rev-media"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_b.mp4" type="video/mp4"></video></div>
+        <div class="rev-media"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_c.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="axis"></div>
+      <div class="rev-txt">
+        <div class="rev-col"><div class="tick"></div><div class="let">A</div><div class="body"><h4>MilliNilli Blocks &amp; Balloon</h4><p>라운드 곡선을 블럭 형태 보완<br>M, N 블럭의 높낮이로 음율감을 주며<br>가독성을 높인 아이덴티티</p></div></div>
+        <div class="rev-col"><div class="tick"></div><div class="let">B</div><div class="body"><h4>3D Landscape</h4><p>밀리닐리 섬을 모티브로 하여<br>하늘에 떠있는 듯한 느낌<br>MiLLi / NiLLi 색상 구분으로 게임 로고 캐릭터 강화</p></div></div>
+        <div class="rev-col"><div class="tick"></div><div class="let">C</div><div class="body"><h4>MilliNilli Block icon</h4><p>밀리닐리 지형 모티브, 3D 클레이 스타일<br>테두리 부분을 매끄럽고 단순<br>쉽게 샌드박스 게임의 이미지 연상</p></div></div>
+      </div>
+      <!-- phone layout -->
+      <div class="mrow">
+        <div class="rev-col"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_a.mp4" type="video/mp4"></video><div class="let">A</div><div class="body"><h4>MilliNilli Blocks &amp; Balloon</h4><p>라운드 곡선을 블럭 형태 보완<br>M, N 블럭의 높낮이로 음율감을 주며<br>가독성을 높인 아이덴티티</p></div></div>
+        <div class="rev-col"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_b.mp4" type="video/mp4"></video><div class="let">B</div><div class="body"><h4>3D Landscape</h4><p>밀리닐리 섬을 모티브로 하여<br>하늘에 떠있는 듯한 느낌<br>MiLLi / NiLLi 색상 구분으로 게임 로고 캐릭터 강화</p></div></div>
+        <div class="rev-col"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png" style="aspect-ratio:16/9;width:100%;object-fit:contain"><source src="video/motion_c.mp4" type="video/mp4"></video><div class="let">C</div><div class="body"><h4>MilliNilli Block icon</h4><p>밀리닐리 지형 모티브, 3D 클레이 스타일<br>테두리 부분을 매끄럽고 단순<br>쉽게 샌드박스 게임의 이미지 연상</p></div></div>
+      </div>
+    </div>
+  </div>
+  <span class="pno">02 / 14</span>
+</section>
+
+<!-- 3 -->
+<section class="band" id="p3">
+  <div class="wrap">
+    <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
+    <div class="trio">
+      <div class="trio-col">
+        <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png"><source src="video/motion_a.mp4" type="video/mp4"></video></div>
+        <div class="let">A</div>
+      </div>
+      <div class="trio-col">
+        <div class="card v-b"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png"><source src="video/motion_b.mp4" type="video/mp4"></video></div>
+        <div class="let">B</div>
+      </div>
+      <div class="trio-col">
+        <div class="card v-c"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png"><source src="video/motion_c.mp4" type="video/mp4"></video></div>
+        <div class="let">C</div>
+      </div>
+    </div>
+  </div>
+  <span class="pno">03 / 14</span>
+</section>
+
+<!-- 4 -->
+<section class="band dark intro" id="p4">
+  <div class="wrap">
+    <p class="big">A</p>
+    <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+  </div>
+  <span class="pno">04 / 14</span>
+</section>
+
+<!-- 5 -->
+<section class="band" id="p5">
+  <div class="wrap">
+    <p class="cmp-head">A</p>
+    <div class="cmp">
+      <div class="cmp-side"><div class="cmp-stage"><img src="img/logo_asis.png" alt="기 시안 로고"></div><div class="cmp-cap"><b>[기 시안]</b><span>as-is</span></div></div>
+      <div class="rule"></div>
+      <div class="cmp-side"><div class="cmp-stage"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png"><source src="video/motion_a.mp4" type="video/mp4"></video></div><div class="cmp-cap"><b>[수정 시안]</b><span>to-be</span></div></div>
+    </div>
+  </div>
+  <span class="pno">05 / 14</span>
+</section>
+
+<!-- 6 -->
+<section class="band quad" id="p6">
+  <div class="wrap">
+    <div class="qgrid">
+      <div class="q">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/logo_a.png" alt="A 로고" style="left:17.9%;top:62.6%;width:64%">
+        <span class="corner">A</span>
+      </div>
+      <div class="q">
+        <div class="tiles">
+          <div class="tile" style="background:#d5e75f"><img class="lg" src="img/logo_a.png" alt="" style="--x:1%;--y:24.4%;--w:98%"></div>
+          <div class="tile" style="background:#2f65fd"><img class="lg" src="img/a_blue.png" alt=""></div>
+          <div class="tile" style="background:#f65009"><img class="lg" src="img/a_orange.png" alt=""></div>
+          <div class="tile" style="background:#ffde57"><img class="lg" src="img/a_yellow.png" alt="" style="--x:.2%;--y:12.2%"></div>
+        </div>
+      </div>
+      <div class="q q-white">
+        <div class="icon">
+          <img class="base" src="img/icon_base.png" alt="">
+          <img class="lg" src="img/monkey.png" alt="" style="left:3.1%;top:2.8%;width:94.1%">
+          <img class="lg" src="img/logo_a.png" alt="" style="left:.3%;top:68.4%;width:99.4%">
+        </div>
+        <div class="appname">MiLLi NiLLi</div>
+      </div>
+      <div class="q q-night">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/smilegate.png" alt="Smilegate" style="left:9.1%;top:43%;width:38.3%">
+        <img class="abs" src="img/white_a.png" alt="밀리닐리 화이트 로고" style="left:54.2%;top:41.3%;width:36.8%">
+      </div>
+    </div>
+  </div>
+  <span class="pno">06 / 14</span>
+</section>
+
+<!-- 7 -->
+<section class="band dark intro" id="p7">
+  <div class="wrap">
+    <p class="big">B</p>
+    <div class="card" style="--lx:18.7%;--ly:57%;--lw:62.9%"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+  </div>
+  <span class="pno">07 / 14</span>
+</section>
+
+<!-- 8 -->
+<section class="band" id="p8">
+  <div class="wrap">
+    <p class="cmp-head">B</p>
+    <div class="cmp">
+      <div class="cmp-side"><div class="cmp-stage"><img src="img/logo_asis.png" alt="기 시안 로고"></div><div class="cmp-cap"><b>[기 시안]</b><span>as-is</span></div></div>
+      <div class="rule"></div>
+      <div class="cmp-side"><div class="cmp-stage"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png"><source src="video/motion_b.mp4" type="video/mp4"></video></div><div class="cmp-cap"><b>[수정 시안]</b><span>to-be</span></div></div>
+    </div>
+  </div>
+  <span class="pno">08 / 14</span>
+</section>
+
+<!-- 9 -->
+<section class="band quad" id="p9">
+  <div class="wrap">
+    <div class="qgrid">
+      <div class="q">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/logo_b.png" alt="B 로고" style="left:15.6%;top:59.3%;width:69%">
+        <span class="corner">B</span>
+      </div>
+      <div class="q q-black">
+        <div class="photos">
+          <div class="photo"><img class="bg" src="img/b_photo1.jpg" alt=""><img class="lg" src="img/logo_b.png" alt=""></div>
+          <div class="photo"><img class="bg" src="img/b_photo2.jpg" alt=""><img class="lg" src="img/b_logo2.png" alt=""></div>
+          <div class="photo"><img class="bg" src="img/b_photo3.jpg" alt=""><img class="lg" src="img/b_logo3.png" alt=""></div>
+          <div class="photo"><img class="bg" src="img/b_photo4.jpg" alt=""><img class="lg" src="img/b_logo4.png" alt=""></div>
+        </div>
+      </div>
+      <div class="q q-white">
+        <div class="icon" style="left:31.56%">
+          <img class="art" src="img/keyart.jpg" alt="">
+          <img class="lg" src="img/logo_b.png" alt="" style="left:-4%;top:62.4%;width:107.3%">
+        </div>
+        <div class="appname">MiLLi NiLLi</div>
+      </div>
+      <div class="q q-night">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/smilegate.png" alt="Smilegate" style="left:9.1%;top:43.1%;width:38.3%">
+        <img class="abs" src="img/white_b.png" alt="밀리닐리 화이트 로고" style="left:53.1%;top:43.7%;width:38.1%">
+      </div>
+    </div>
+  </div>
+  <span class="pno">09 / 14</span>
+</section>
+
+<!-- 10 -->
+<section class="band dark intro" id="p10">
+  <div class="wrap">
+    <p class="big">C</p>
+    <div class="card" style="--lx:18.7%;--ly:53.6%;--lw:62.8%"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+  </div>
+  <span class="pno">10 / 14</span>
+</section>
+
+<!-- 11 -->
+<section class="band" id="p11">
+  <div class="wrap">
+    <p class="cmp-head">C</p>
+    <div class="cmp">
+      <div class="cmp-side"><div class="cmp-stage"><img src="img/logo_asis.png" alt="기 시안 로고"></div><div class="cmp-cap"><b>[기 시안]</b><span>as-is</span></div></div>
+      <div class="rule"></div>
+      <div class="cmp-side"><div class="cmp-stage"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png"><source src="video/motion_c.mp4" type="video/mp4"></video></div><div class="cmp-cap"><b>[수정 시안]</b><span>to-be</span></div></div>
+    </div>
+  </div>
+  <span class="pno">11 / 14</span>
+</section>
+
+<!-- 12 -->
+<section class="band quad" id="p12">
+  <div class="wrap">
+    <div class="qgrid">
+      <div class="q">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/logo_c.png" alt="C 로고" style="left:12.7%;top:52.2%;width:74.6%">
+        <span class="corner">C</span>
+      </div>
+      <div class="q">
+        <div class="tiles">
+          <div class="tile" style="background:#d5e75f;z-index:1"><img class="lg" src="img/c_lime.png" alt="" style="--x:2.5%;--y:14%;--w:95%"><img class="blk" src="img/blk_grass.png" alt=""></div>
+          <div class="tile" style="background:#0c8ce9;z-index:1"><img class="lg" src="img/c_wood.png" alt="" style="--x:2.3%;--y:13.3%;--w:95.4%"><img class="blk" src="img/blk_wood.png" alt="" style="top:73.3%"></div>
+          <div class="tile" style="background:#f65009;z-index:2"><img class="lg" src="img/c_brick.png" alt="" style="--x:2.3%;--y:-6.3%;--w:95.2%"><img class="lg" src="img/npc.png" alt="" style="--x:10.6%;--y:17.8%;--w:78.8%"><img class="blk" src="img/blk_brick.png" alt="" style="top:73.3%"></div>
+          <div class="tile" style="background:#f3c11b;z-index:2"><img class="lg" src="img/c_sand.png" alt="" style="--x:2.3%;--y:-6.3%;--w:95.2%"><img class="lg" src="img/monkey_s.png" alt="" style="--x:30.4%;--y:43.7%;--w:39.2%"><img class="blk" src="img/blk_sand.png" alt="" style="top:73.3%"></div>
+        </div>
+      </div>
+      <div class="q q-white">
+        <div class="icon" style="left:31.56%">
+          <img class="art" src="img/keyart.jpg" alt="">
+          <img class="lg" src="img/logo_c.png" alt="" style="left:-5.6%;top:59.6%;width:111.3%">
+        </div>
+        <div class="appname">MiLLi NiLLi</div>
+      </div>
+      <div class="q q-night">
+        <img class="fill" src="img/keyart.jpg" alt="">
+        <img class="abs" src="img/smilegate.png" alt="Smilegate" style="left:9.1%;top:43.1%;width:38.3%">
+        <img class="abs" src="img/white_c.png" alt="밀리닐리 화이트 로고" style="left:54.2%;top:41.1%;width:36.8%">
+      </div>
+    </div>
+  </div>
+  <span class="pno">12 / 14</span>
+</section>
+
+<!-- 13 -->
+<section class="band" id="p13">
+  <div class="wrap">
+    <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
+    <div class="trio">
+      <div class="trio-col">
+        <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="under"><img src="img/logo_a.png" alt="A 로고"></div>
+        <div class="let">A</div>
+      </div>
+      <div class="trio-col">
+        <div class="card v-b"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="under"><img src="img/logo_b.png" alt="B 로고"></div>
+        <div class="let">B</div>
+      </div>
+      <div class="trio-col">
+        <div class="card v-c"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="under"><img src="img/logo_c.png" alt="C 로고"></div>
+        <div class="let">C</div>
+      </div>
+    </div>
+  </div>
+  <span class="pno">13 / 14</span>
+</section>
+
+<!-- 14 -->
+<section class="band dark end" id="p14">
+  <div class="wrap">
+    <h2>E.O.D</h2>
+    <p><b>MILLI NILLI</b>&nbsp; Brand Identity V1.0 / as is - to be</p>
+  </div>
+  <span class="pno">14 / 14</span>
+</section>
+
+<script>
+/* Keep every motion clip playing in place, even if a browser pauses it off-screen or blocks the first autoplay attempt. */
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('video'));
+  function kick(v){ if(v.paused){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } }
+  vids.forEach(function(v){ v.muted=true; v.setAttribute('muted',''); kick(v); });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) kick(e.target); }); },{threshold:.1});
+    vids.forEach(function(v){ io.observe(v); });
+  }
+  document.addEventListener('visibilitychange',function(){ if(!document.hidden) vids.forEach(kick); });
+  document.addEventListener('touchstart',function(){ vids.forEach(kick); },{once:true,passive:true});
+})();
+</script>
+</body>
+</html>
