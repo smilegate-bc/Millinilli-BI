@@ -77,25 +77,24 @@ img,video{display:block;max-width:100%}
 .v-a{--lx:19.6%;--ly:58.4%;--lw:60.6%}
 .v-b{--lx:18.6%;--ly:57%;--lw:62.9%}
 .v-c{--lx:18.6%;--ly:53.7%;--lw:62.7%}
-.trio .under{width:100%;margin-top:clamp(-40px,-2vw,-8px);display:flex;justify-content:center;align-items:center;aspect-ratio:16/9}
+.trio .under{width:100%;margin-top:clamp(4px,.6vw,10px);display:flex;justify-content:center;align-items:center;aspect-ratio:16/9}
 .trio .under video{width:100%;height:100%;object-fit:contain}
-.trio .under img{width:86%;height:auto}
+.trio .under img{width:80%;height:auto}
 .trio .let{font-size:clamp(32px,2.6vw,48px);font-weight:600;line-height:1.2;margin-top:4px}
 
 /* Section intro (04, 07, 10) */
 .intro{text-align:center}
 .intro .big{font-size:clamp(72px,8vw,128px);font-weight:700;line-height:1.2;margin:0}
 .intro .card{max-width:1156px;margin:clamp(24px,3vw,44px) auto 0;aspect-ratio:1156/564}
-.intro .card>img.art{border-radius:0}
 
 /* Compare (05, 08, 11) */
 .cmp-head{text-align:center;font-size:clamp(48px,4.4vw,64px);font-weight:700;margin:0;line-height:1.2}
 .cmp{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);margin-top:clamp(24px,3vw,40px)}
 .cmp .rule{background:var(--ink-soft)}
-.cmp-side{display:flex;flex-direction:column;align-items:center;min-width:0;padding:0 clamp(12px,3vw,56px)}
-.cmp-stage{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:clamp(220px,34vw,640px)}
-.cmp-stage img{width:min(100%,752px)}
-.cmp-stage video{width:100%;max-width:960px;aspect-ratio:var(--ar,16/9);object-fit:contain}
+.cmp-side{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:clamp(16px,3vw,48px) clamp(12px,3vw,56px)}
+.cmp-stage{width:100%;max-width:960px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.cmp-stage img{width:78%;height:auto}
+.cmp-stage video{width:100%;height:100%;object-fit:contain}
 .cmp-cap{text-align:center;margin-top:clamp(12px,2vw,28px)}
 .cmp-cap b{display:block;font-weight:400;font-size:clamp(22px,2.2vw,32px)}
 .cmp-cap span{display:block;font-size:clamp(16px,1.6vw,24px);margin-top:2px}
@@ -123,7 +122,7 @@ img,video{display:block;max-width:100%}
 .appname{font-size:max(12px,2.6cqw);font-weight:500;color:var(--ink);line-height:1.2;letter-spacing:.01em}
 /* publisher lockup */
 .p-lock{background:var(--night)}
-.p-lock .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,24,.58),rgba(10,14,24,.72))}
+.p-lock .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,16,22,.66),rgba(14,16,22,.78))}
 .lockup{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:4.5cqw}
 .lockup .sg{width:28cqw}
 .lockup .div{width:1px;height:9cqw;background:rgba(255,255,255,.45)}
@@ -215,17 +214,17 @@ img,video{display:block;max-width:100%}
     <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
     <div class="trio">
       <div class="trio-col">
-        <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_a.png"><source src="video/motion_a.mp4" type="video/mp4"></video></div>
         <div class="let">A</div>
       </div>
       <div class="trio-col">
-        <div class="card v-b"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="card v-b"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_b.png"><source src="video/motion_b.mp4" type="video/mp4"></video></div>
         <div class="let">B</div>
       </div>
       <div class="trio-col">
-        <div class="card v-c"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="card v-c"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
         <div class="under"><video autoplay muted loop playsinline preload="auto" poster="img/logo_c.png"><source src="video/motion_c.mp4" type="video/mp4"></video></div>
         <div class="let">C</div>
       </div>
@@ -238,7 +237,7 @@ img,video{display:block;max-width:100%}
 <section class="band dark intro" id="p4">
   <div class="wrap">
     <p class="big">A</p>
-    <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+    <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
   </div>
   <span class="pno">04 / 14</span>
 </section>
@@ -295,7 +294,7 @@ img,video{display:block;max-width:100%}
 <section class="band dark intro" id="p7">
   <div class="wrap">
     <p class="big">B</p>
-    <div class="card" style="--lx:18.7%;--ly:57%;--lw:62.9%"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+    <div class="card" style="--lx:18.7%;--ly:57%;--lw:62.9%"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
   </div>
   <span class="pno">07 / 14</span>
 </section>
@@ -351,7 +350,7 @@ img,video{display:block;max-width:100%}
 <section class="band dark intro" id="p10">
   <div class="wrap">
     <p class="big">C</p>
-    <div class="card" style="--lx:18.7%;--ly:53.6%;--lw:62.8%"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+    <div class="card" style="--lx:18.7%;--ly:53.6%;--lw:62.8%"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
   </div>
   <span class="pno">10 / 14</span>
 </section>
@@ -409,17 +408,17 @@ img,video{display:block;max-width:100%}
     <div class="mast"><h2>MILLI NILLI</h2><p>Brand Identity</p></div>
     <div class="trio">
       <div class="trio-col">
-        <div class="card v-a"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
+        <div class="card v-a"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_a.png" alt="A 로고"></div>
         <div class="under"><img src="img/logo_a.png" alt="A 로고"></div>
         <div class="let">A</div>
       </div>
       <div class="trio-col">
-        <div class="card v-b"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
+        <div class="card v-b"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_b.png" alt="B 로고"></div>
         <div class="under"><img src="img/logo_b.png" alt="B 로고"></div>
         <div class="let">B</div>
       </div>
       <div class="trio-col">
-        <div class="card v-c"><img class="art" src="img/keyart_round.png" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
+        <div class="card v-c"><img class="art" src="img/keyart_wide.jpg" alt=""><img class="logo" src="img/logo_c.png" alt="C 로고"></div>
         <div class="under"><img src="img/logo_c.png" alt="C 로고"></div>
         <div class="let">C</div>
       </div>
